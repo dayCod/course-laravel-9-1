@@ -28,6 +28,11 @@ class ProfileController extends Controller
 
     public function edit($user)
     {
-        //
+        $result = $this->profileService->edit($user);
+
+        return view('admin.page.profiles.edit', [
+            'message' => $result->message,
+            'user' => $result->data,
+        ]);
     }
 }

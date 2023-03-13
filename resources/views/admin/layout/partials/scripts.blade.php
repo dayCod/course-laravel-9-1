@@ -1,4 +1,6 @@
 <!-- JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script src="{{ asset('backend/assets/libs/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('backend/assets/libs/metismenu/metisMenu.min.js') }}"></script>
@@ -28,3 +30,7 @@
 
 <!-- App js -->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+
+<!-- Stack Scripts -->
+@stack('scripts')

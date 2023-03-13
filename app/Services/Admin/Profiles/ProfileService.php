@@ -23,4 +23,20 @@ class ProfileService
 
         return $result;
     }
+
+    public function edit($user)
+    {
+        $loggedUser = User::find($user);
+
+        $status = true;
+        $message = "Data Berhasil Diambil";
+
+        $result = (object) [
+            'status' => $status,
+            'message' => $message,
+            'data' => $loggedUser,
+        ];
+
+        return $result;
+    }
 }

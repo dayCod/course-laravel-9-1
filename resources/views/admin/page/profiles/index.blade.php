@@ -45,7 +45,8 @@
                                 </div>
                             </div>
                             <!-- end row -->
-                            <a href="" class="btn btn-info waves-effect waves-light float-end">Edit
+                            <a href="{{ route('profile.edit', $user->id) }}"
+                                class="btn btn-info waves-effect waves-light float-end">Edit
                                 Profiles</a>
                         </div>
                     </div>
