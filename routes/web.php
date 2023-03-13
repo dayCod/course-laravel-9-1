@@ -28,6 +28,7 @@ Route::group([
     });
     Route::controller(ProfileController::class)->group(function () {
         Route::get('/profile', 'index')->name('profile');
+        Route::get('/profile/{user}/edit', 'edit')->name('profile.edit');
     });
 });
 

@@ -25,4 +25,9 @@ class ProfileController extends Controller
             'user' => $result->data,
         ]);
     }
+
+    public function edit($user)
+    {
+        //
+    }
 }
