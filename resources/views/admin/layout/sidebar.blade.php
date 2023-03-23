@@ -5,7 +5,7 @@
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div class="">
-                <img src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}" alt=""
+                <img src="{{ is_null(Auth::user()->profile_image) ? asset('backend/assets/images/users/avatar-3.jpg') : asset('upload/profile_images/'.Auth::user()->profile_image) }}" alt=""
                     class="avatar-md rounded-circle">
             </div>
             <div class="mt-3">
