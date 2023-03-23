@@ -16,12 +16,12 @@
                             <center>
                                 <div class="mt-4 mt-md-0 mb-4">
                                     <img class="img-thumbnail rounded-circle avatar-xl"
-                                        src="{{ asset('backend/assets/images/users/avatar-3.jpg') }}" alt="200x200"
+                                        src="{{ is_null($user->profile_image) ? asset('backend/assets/images/users/avatar-3.jpg') : asset('upload/profile_images/'.$user->profile_image) }}" alt="200x200"
                                         data-holder-rendered="true" id="showImage">
                                 </div>
                             </center>
 
-                            <form action="" method="POST">
+                            <form action="{{ route('profile.update', auth()->id()) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-3">

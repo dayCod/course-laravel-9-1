@@ -35,4 +35,15 @@ class ProfileController extends Controller
             'user' => $result->data,
         ]);
     }
+
+    public function update(Request $request, $user)
+    {
+        $result = $this->profileService->update($request, $user);
+
+        if($result->status) {
+            return redirect()
+                ->route('profile')
+                ->withSuccess($result->message);
+        }
+    }
 }

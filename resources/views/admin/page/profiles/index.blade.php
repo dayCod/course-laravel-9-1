@@ -16,7 +16,7 @@
                             <center>
                                 <div class="mt-4 mt-md-0 mb-4">
                                     <img class="img-thumbnail rounded-circle avatar-xl"
-                                        src="{{ asset('backend/assets/images/users/avatar-3.jpg') }}" alt="200x200"
+                                        src="{{ is_null($user->profile_image) ? asset('backend/assets/images/users/avatar-3.jpg') : asset('upload/profile_images/'.$user->profile_image) }}" alt="200x200"
                                         data-holder-rendered="true">
                                 </div>
                             </center>
