@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ChangePassword\ChangePasswordController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\HomeSlide\HomeSlideController;
 use App\Http\Controllers\Admin\Profile\ProfileController;
+use App\Http\Controllers\Frontend\LandingPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function() {
-    return view('frontend.page.home.index');
-}); //end route
+Route::get('/', [LandingPageController::class, 'index']); //end route
 
 Route::group([
     'prefix' => '/admin',
