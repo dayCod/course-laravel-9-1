@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ChangePassword\ChangePasswordController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\HomeSlide\HomeSlideController;
 use App\Http\Controllers\Admin\Profile\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,10 @@ Route::group([
     Route::controller(ChangePasswordController::class)->group(function() {
         Route::get('/change-password', 'index')->name('change-password');
         Route::post('/change-password/update', 'update')->name('change-password.update');
+    }); //end route
+
+    Route::controller(HomeSlideController::class)->group(function() {
+        Route::get('home-slide', 'show')->name('home-slide.show');
     }); //end route
 
 });
