@@ -15,14 +15,15 @@
 
                             <h4 class="card-title">Home Slide Page </h4>
 
-                            <form method="post" action="" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('home-slider.update', $homeSlide->id) }}" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
 
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-10">
                                         <input name="title" class="form-control" type="text"
-                                            value="{{ $homeslide->title ?? '-' }}" id="example-text-input">
+                                            value="{{ $homeSlide->title ?? '-' }}" id="example-text-input">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -31,7 +32,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Short Title </label>
                                     <div class="col-sm-10">
                                         <input name="short_title" class="form-control" type="text"
-                                            value="{{ $homeslide->short_title ?? '-' }}" id="example-text-input">
+                                            value="{{ $homeSlide->short_title ?? '-' }}" id="example-text-input">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -41,7 +42,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Video URL </label>
                                     <div class="col-sm-10">
                                         <input name="video_url" class="form-control" type="text"
-                                            value="{{ $homeslide->video_url ?? '-' }}" id="example-text-input">
+                                            value="{{ $homeSlide->video_url ?? '-' }}" id="example-text-input">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -59,7 +60,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
                                     <div class="col-sm-10">
                                         <img id="showImage" class="rounded avatar-lg"
-                                            src="{{ is_null($homeSlide) ? asset('upload/no_image.jpeg') : asset('backend/home_slide/'.$homeSlide->home_slide) }}"
+                                            src="{{ empty($homeSlide->home_slide) ? asset('upload/no_image.jpeg') : asset($homeSlide->home_slide) }}"
                                             alt="Card image cap">
                                     </div>
                                 </div>

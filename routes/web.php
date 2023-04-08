@@ -46,6 +46,7 @@ Route::group([
 
     Route::controller(HomeSlideController::class)->group(function() {
         Route::get('home-slide', 'show')->name('home-slide.show');
+        Route::put('home-slider/{id}/update', 'updateHomeSlider')->name('home-slider.update');
     }); //end route
 
 });
