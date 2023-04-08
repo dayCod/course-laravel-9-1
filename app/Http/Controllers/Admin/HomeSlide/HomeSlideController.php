@@ -35,13 +35,7 @@ class HomeSlideController extends Controller
             $dir = 'upload/home_slide/';
             $save_path = 'upload/home_slide/'.$imageName;
 
-            if (!file_exists(public_path($dir))) {
-                mkdir(public_path($dir), 0775, true);
-            } else {
-                File::delete(public_path($model->home_slide));
-            }
-
-            Image::make($image)->resize(636, 852)->save(public_path($save_path));
+            saveImageToPublicPathAndResizeImage($dir, $image, $save_path, 652, 852, $model->home_slide);
 
             $data['home_slide'] = $save_path;
 
