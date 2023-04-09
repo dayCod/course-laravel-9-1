@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\About\AboutController;
+use App\Http\Controllers\Admin\About\MultiImageController;
 use App\Http\Controllers\Admin\ChangePassword\ChangePasswordController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\HomeSlide\HomeSlideController;
@@ -51,10 +52,18 @@ Route::group([
         Route::put('home-slider/{id}/update', 'updateHomeSlider')->name('home-slider.update');
     }); //end route
 
-    Route::controller(AboutController::class)->group(function() {
-        Route::get('about', 'show')->name('about.show');
-        Route::put('about/{id}/update', 'updateAbout')->name('about.update');
-    }); //end route
+    Route::group(['prefix' => 'about', 'as' => 'about.'], function() {
+
+        Route::controller(AboutController::class)->group(function() {
+            Route::get('/', 'show')->name('show');
+            Route::put('{id}/update', 'updateAbout')->name('update');
+        }); //end route
+
+        Route::controller(MultiImageController::class)->group(function() {
+            Route::get('multi-image', 'show')->name('multi-image');
+        }); //end route
+
+    }); //end route group
 
 });
 
