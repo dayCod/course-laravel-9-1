@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomeSlide;
+use App\Models\{
+    About,
+    HomeSlide,
+};
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -12,6 +15,7 @@ class LandingPageController extends Controller
     {
         $data = [
             'home_slide' => $this->homeSlide(),
+            'about' => $this->about(),
         ];
 
         return view('frontend.page.home.index', compact('data'));
@@ -23,5 +27,12 @@ class LandingPageController extends Controller
 
         return $data;
     } //end method
+
+    private function about()
+    {
+        $data = About::find(1)->toArray();
+
+        return $data;
+    }
 
 }

@@ -13,8 +13,9 @@
 
                             <h4 class="card-title">About Page </h4>
 
-                            <form method="post" action="" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('about.update', $about->id) }}" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
 
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
@@ -39,7 +40,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Short Description
                                     </label>
                                     <div class="col-sm-10">
-                                        <textarea required="" name="short_description" class="form-control" rows="5"></textarea>
+                                        <textarea required="" name="short_description" class="form-control" rows="5">{{ $about->short_description ?? '-' }}</textarea>
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -49,7 +50,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Long Description
                                     </label>
                                     <div class="col-sm-10">
-                                        <textarea id="elm1" name="long_description"></textarea>
+                                        <textarea id="elm1" name="long_description">{{ $about->long_description ?? '-' }}</textarea>
                                     </div>
                                 </div>
                                 <!-- end row -->

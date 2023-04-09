@@ -51,6 +51,7 @@ Route::group([
 
     Route::controller(AboutController::class)->group(function() {
         Route::get('about', 'show')->name('about.show');
+        Route::put('about/{id}/update', 'updateAbout')->name('about.update');
     }); //end route
 
 });
