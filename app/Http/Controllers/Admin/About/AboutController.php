@@ -14,4 +14,5 @@ class AboutController extends Controller
 
         return view('admin.page.about.show', compact('about'));
     }
+
 }
